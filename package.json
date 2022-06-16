@@ -1,0 +1,48 @@
+{
+  "name": "find-wp-profile-image",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Find wp profile images",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "dev": "DEBUG=koa-mount babel-watch ./src/server.js",
+    "start": "NODE_ENV=production node -r ./node_modules/dotenv-safe/config ./lib/server.js",
+    "run-all-tests": "npm-run-all test:*",
+    "test": "npm run test:lint src && npm run test:deps",
+    "test:lint": "standard src",
+    "test:deps": "dependency-check --verbose --missing ./lib/**/*.js --no-dev --i dotenv-safe"
+  },
+  "keywords": [
+    "koa"
+  ],
+  "author": "Augustin Godiscal <hello@auggod.tech>",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "dotenv-safe": "^8.2.0",
+    "koa": "^2.13.1",
+    "koa-compress": "^5.1.0",
+    "koa-json-error": "^3.1.2",
+    "koa-logger": "^3.2.1",
+    "koa-mount": "^4.0.0",
+    "node-cache": "^5.1.2",
+    "winston": "^3.7.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/register": "^7.8.3",
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "babel-watch": "^7.7.0",
+    "dependency-check": "^4.1.0",
+    "npm-run-all": "^4.1.5",
+    "server-destroy": "^1.0.1",
+    "standard": "^16.0.4",
+    "supertest": "^4.0.2",
+    "tape": "^4.11.0"
+  },
+  "license": "MIT"
+}
